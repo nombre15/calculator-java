@@ -1,11 +1,8 @@
-import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 public class java2 {
 
     public static void main(String[] args) {
-        
-        Scanner cin = new Scanner(System.in);
     
         short option;
         int x;
@@ -102,10 +99,8 @@ public class java2 {
                     default:
                         JOptionPane.showMessageDialog(null,"error wtf how you hacker");
                     break;    
-            }   
-            option = cin.nextShort();
+            } 
         }
-        cin.close();
         System.out.println("Bye fucking");
     }    
 }
