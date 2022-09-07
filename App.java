@@ -7,8 +7,7 @@ public class java2 {
         short option;
         int x;
         int y;
-        int result = 0;
-        float result2 = 0;
+        calculator result = new calculator();
 
         do{
             option = Short.parseShort(JOptionPane.showInputDialog("Welcome to calculator what do want to do\n\n1. Addition \n2. Substract \n3. Multiply \n4. Divide \n5. Power \n6. Random number \n7. Square root sum \n8. Percentage \n9. Square root"  
@@ -28,79 +27,58 @@ public class java2 {
         x = Integer.parseInt(JOptionPane.showInputDialog("Enter first number: "));
         y = Integer.parseInt(JOptionPane.showInputDialog("Enter second number: "));
 
-        while (option != 0){
-
             switch(option){
 
-                    case 1: result = x + y;
-                        JOptionPane.showMessageDialog(null,"\n" + x + " + " + y + " = " + result);
+                    case 1: result.Addition(x, y);
                     break;
 
-                    case 2: result = x - y;
-                        JOptionPane.showMessageDialog(null,"\n" + x + " - " + y + " = " + result);
+                    case 2: result.Substract(x, y);
                     break;
 
-                    case 3: result = x * y;
-                        JOptionPane.showMessageDialog(null,"\n" + x + " x " + y + " = " + result);
+                    case 3: result.Multiply(x, y);
                     break;
 
-                    case 4: result2 = (float)x / y;
-                        JOptionPane.showMessageDialog(null,"\n" + x + " / " + y + " = " + result2);
+                    case 4: result.Divide(x, y);
                     break;
 
-                    case 5: result = (int) Math.pow(x,y);
-                        JOptionPane.showMessageDialog(null,"\n" + x + " ^ " + y + " = " + result);
+                    case 5: result.Power(x, y);
                     break;
                     
                     case 6: 
                         if(x > y){
-                            result = (int)(Math.random()*(x-y+1)+y);
+                            result.Random(x, y);
                         }
                         else if(y > x){
-                            result =  (int)(Math.random()*(y-x+1)+x);
+                            result.Random(y, x);
                         }
                         else{
                             JOptionPane.showMessageDialog(null,"Cant generate same number idio t");
                             break;
                         }
-                        JOptionPane.showMessageDialog(null,"\nThe number generated between " + x + " and " + y + " is " + result);
                     break;
 
-                    case 7: result2 = (float) (Math.sqrt(x) + Math.sqrt(y));
-                        JOptionPane.showMessageDialog(null,"\nSqrt" + x + " + " + " Sqrt" + y + " = " + result2);
+                    case 7: result.SquareSum(x, y);
                     break;
 
-                    case 8: result2 = (x * y) / 100;
-                        JOptionPane.showMessageDialog(null,"\nThe " + x + "%" + " of " + y + " is " + result2);
+                    case 8: result.Percentage(x, y);
                     break;
 
-                    case 9: result2 = (float) (Math.sqrt(x));
-                        JOptionPane.showMessageDialog(null,"\nSqrt" + x + " = " + result2);
-
-                        result2 = (float) (Math.sqrt(y));
-                        JOptionPane.showMessageDialog(null,"\nSqrt" + y + " = " + result2);
+                    case 9: result.Square(x, y);
                     break;
                     
-                    case 10: result2 = (float) (Math.log(x));
-                        JOptionPane.showMessageDialog(null,"\nLog" + x + " = " + result2);
-
-                        result2 = (float) (Math.log(y));
-                        JOptionPane.showMessageDialog(null,"\nLog" + y + " = " + result2);
+                    case 10: result.Logarithm(x, y);
                     break;
 
-                    case 11: result = Math.min(x, y);
-                        JOptionPane.showMessageDialog(null,"The minimum number between " + x + " & " + y + " is " + result);
+                    case 11: result.Maximum(x, y);
                     break;
                     
-                    case 12: result = Math.max(x, y);
-                        JOptionPane.showMessageDialog(null,"The maximum number between " + x + " & " + y + " is " + result);
+                    case 12: result.Minimum(x, y);
                     break;
 
                     default:
                         JOptionPane.showMessageDialog(null,"error wtf how you hacker");
                     break;    
             } 
-        }
         System.out.println("Bye fucking");
     }    
 }
