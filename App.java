@@ -1,65 +1,61 @@
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
-public class App {
+public class java2 {
+
     public static void main(String[] args) {
-
+        
         Scanner cin = new Scanner(System.in);
-        
-        System.out.println("Welcome to calculator what do want to do");
-        System.out.println("1. Addition \n2. Substract \n3. Multiply \n4. Divide \n5. Power \n6. Random number \n7. Square root sum \n8. Percentage \n9. Square root \n10. Logarithm \n0.Exit");
-        
+    
         short option;
         int x;
         int y;
         int result = 0;
         float result2 = 0;
 
-        System.out.print("Your answer: ");
-        option = cin.nextShort();
+        do{
+            option = Short.parseShort(JOptionPane.showInputDialog("Welcome to calculator what do want to do\n\n1. Addition \n2. Substract \n3. Multiply \n4. Divide \n5. Power \n6. Random number \n7. Square root sum \n8. Percentage \n9. Square root"  
+            + "\n10. Logarithm \n11. Find minimum number \n12. Find maximum number \n0.Exit"));
 
-        while(option > 10){
-
-            System.out.println(option + " is not a valid option, try again plz");
-            option = cin.nextShort();
-        }
+            if(option > 12){
+                JOptionPane.showMessageDialog(null, option + " is not a valid option, try again plz");
+            }
+        }while(option > 12);
 
         if(option == 0){
 
-            System.out.println("Bye fucking");
+            JOptionPane.showMessageDialog(null,"Bye fucking");
             System.exit(0);
         }
 
-        System.out.print("Enter first number: ");
-        x = cin.nextInt();
-        System.out.print("Enter second number: ");
-        y = cin.nextInt();
+        x = Integer.parseInt(JOptionPane.showInputDialog("Enter first number: "));
+        y = Integer.parseInt(JOptionPane.showInputDialog("Enter second number: "));
 
         while (option != 0){
 
             switch(option){
 
                     case 1: result = x + y;
-                        System.out.println("\n" + x + " + " + y + " = " + result);
-                        break;
+                        JOptionPane.showMessageDialog(null,"\n" + x + " + " + y + " = " + result);
+                    break;
 
                     case 2: result = x - y;
-                        System.out.println("\n" + x + " - " + y + " = " + result);
-                        break;
+                        JOptionPane.showMessageDialog(null,"\n" + x + " - " + y + " = " + result);
+                    break;
 
                     case 3: result = x * y;
-                        System.out.println("\n" + x + " x " + y + " = " + result);
-                        break;
+                        JOptionPane.showMessageDialog(null,"\n" + x + " x " + y + " = " + result);
+                    break;
 
                     case 4: result2 = (float)x / y;
-                        System.out.println("\n" + x + " / " + y + " = " + result2);
-                        break;
+                        JOptionPane.showMessageDialog(null,"\n" + x + " / " + y + " = " + result2);
+                    break;
 
                     case 5: result = (int) Math.pow(x,y);
-                        System.out.println("\n" + x + " ^ " + y + " = " + result);
-                        break;
+                        JOptionPane.showMessageDialog(null,"\n" + x + " ^ " + y + " = " + result);
+                    break;
                     
                     case 6: 
-                    
                         if(x > y){
                             result = (int)(Math.random()*(x-y+1)+y);
                         }
@@ -67,41 +63,49 @@ public class App {
                             result =  (int)(Math.random()*(y-x+1)+x);
                         }
                         else{
-                            System.out.println("Cant generate same number idio t");
+                            JOptionPane.showMessageDialog(null,"Cant generate same number idio t");
                             break;
                         }
-                        System.out.println("\nThe number generated between " + x + " and " + y + " is " + result);
-                        break;
+                        JOptionPane.showMessageDialog(null,"\nThe number generated between " + x + " and " + y + " is " + result);
+                    break;
 
                     case 7: result2 = (float) (Math.sqrt(x) + Math.sqrt(y));
-                        System.out.println("\nSqrt" + x + " + " + " Sqrt" + y + " = " + result2);
-                        break;
+                        JOptionPane.showMessageDialog(null,"\nSqrt" + x + " + " + " Sqrt" + y + " = " + result2);
+                    break;
 
                     case 8: result2 = (x * y) / 100;
-                        System.out.println("\nThe " + x + "%" + " of " + y + " is " + result2);
-                        break;
+                        JOptionPane.showMessageDialog(null,"\nThe " + x + "%" + " of " + y + " is " + result2);
+                    break;
 
                     case 9: result2 = (float) (Math.sqrt(x));
-                        System.out.println("\nSqrt" + x + " = " + result2);
+                        JOptionPane.showMessageDialog(null,"\nSqrt" + x + " = " + result2);
 
                         result2 = (float) (Math.sqrt(y));
-                        System.out.println("\nSqrt" + y + " = " + result2);
-                        break;
+                        JOptionPane.showMessageDialog(null,"\nSqrt" + y + " = " + result2);
+                    break;
                     
                     case 10: result2 = (float) (Math.log(x));
-                        System.out.println("\nLog" + x + " = " + result2);
+                        JOptionPane.showMessageDialog(null,"\nLog" + x + " = " + result2);
 
                         result2 = (float) (Math.log(y));
-                        System.out.println("\nLog" + y + " = " + result2);
-                        break;
+                        JOptionPane.showMessageDialog(null,"\nLog" + y + " = " + result2);
+                    break;
+
+                    case 11: result = Math.min(x, y);
+                        JOptionPane.showMessageDialog(null,"The minimum number between " + x + " & " + y + " is " + result);
+                    break;
                     
+                    case 12: result = Math.max(x, y);
+                        JOptionPane.showMessageDialog(null,"The maximum number between " + x + " & " + y + " is " + result);
+                    break;
+
                     default:
-                        System.out.print("error wtf how you hacker");
-                        break;    
+                        JOptionPane.showMessageDialog(null,"error wtf how you hacker");
+                    break;    
             }   
             option = cin.nextShort();
         }
         cin.close();
         System.out.println("Bye fucking");
-    }
+    }    
 }
